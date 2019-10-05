@@ -1,8 +1,10 @@
-package br.com.marcosouza.justamobile;
+package br.com.marcosouza.justamobile.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.com.marcosouza.justamobile.R;
 
 public class MainActivity extends AppCompatActivity {
 
