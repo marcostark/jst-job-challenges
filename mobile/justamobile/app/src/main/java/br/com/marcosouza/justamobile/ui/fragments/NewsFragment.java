@@ -11,11 +11,24 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.marcosouza.justamobile.R;
+import br.com.marcosouza.justamobile.model.NewsArticles;
+import br.com.marcosouza.justamobile.model.NewsResponse;
+import br.com.marcosouza.justamobile.ui.adapter.NewsAdapter;
 import br.com.marcosouza.justamobile.ui.viewmodels.NewsViewModel;
 
 public class NewsFragment extends Fragment {
+
+    private ArrayList<NewsArticles> newsArticleList = new ArrayList <> ();
+    private NewsAdapter newsAdapter;
+    private RecyclerView recyclerView;
 
     private NewsViewModel newsViewModel;
 
@@ -24,13 +37,32 @@ public class NewsFragment extends Fragment {
         newsViewModel =
                 ViewModelProviders.of(this).get(NewsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_news, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        newsViewModel.getText().observe(this, new Observer<String>() {
+        recyclerView = root.findViewById(R.id.rv_news);
+        newsViewModel =
+                ViewModelProviders.of(this).get(NewsViewModel.class);
+        newsViewModel.init();
+        newsViewModel.getNewsRepository().observe(this, new Observer<NewsResponse>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onChanged(NewsResponse newsResponse) {
+                List<NewsArticles> newsArticles = newsResponse.getArticles();
+                newsArticleList.addAll(newsArticles);
+                newsAdapter.notifyDataSetChanged();
             }
         });
+        loadRecyclerView();
+
         return root;
+    }
+
+    private void loadRecyclerView() {
+        if (newsAdapter == null) {
+            newsAdapter = new NewsAdapter(getActivity(), newsArticleList);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            recyclerView.setAdapter(newsAdapter);
+            recyclerView.setItemAnimator(new DefaultItemAnimator());
+            recyclerView.setNestedScrollingEnabled(true);
+        } else {
+            newsAdapter.notifyDataSetChanged();
+        }
     }
 }
