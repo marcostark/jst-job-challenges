@@ -17,6 +17,10 @@
             android:icon="@drawable/ic_menu_collection_day"
             android:title="@string/menu_collection_day" />
         <item
+            android:id="@+id/nav_recycling_companies"
+            android:icon="@drawable/ic_menu_collection_day"
+            android:title="@string/menu_recycling_companies" />
+        <item
             android:id="@+id/nav_tools"
             android:icon="@drawable/ic_menu_forecast"
             android:title="@string/menu_forecast" />
