@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="br.com.marcosouza.justamobile.ui.fragments.HomeFragment"
+        android:name="br.com.marcosouza.justamobile.ui.activity.RecyclingMapActivity"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
