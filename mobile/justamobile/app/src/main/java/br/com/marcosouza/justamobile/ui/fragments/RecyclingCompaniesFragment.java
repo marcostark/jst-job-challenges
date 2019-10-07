@@ -59,8 +59,7 @@ public class RecyclingCompaniesFragment extends Fragment implements ClickRecycle
                     recyclingCompanyAdapter.notifyDataSetChanged();
                 } else {
                     Throwable e = recyclingCompany.getError();
-                    Toast.makeText(getActivity(), "Error is " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    Log.e("ERRORESPOSTA", "Error is " + e.getLocalizedMessage());
+                    Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

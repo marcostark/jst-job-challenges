@@ -53,8 +53,7 @@ public class NeighborhoodsFragment extends Fragment {
                     neighbordhoodsAdapter.notifyDataSetChanged();
                 } else {
                     Throwable e = neighborhoodsResponse.getError();
-                    Toast.makeText(getActivity(), "Error is " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                    Log.e("ERRORESPOSTA", "Error is " + e.getLocalizedMessage());
+                    Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
             }
