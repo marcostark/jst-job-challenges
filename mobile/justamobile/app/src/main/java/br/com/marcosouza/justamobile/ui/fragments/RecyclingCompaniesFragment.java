@@ -1,5 +1,6 @@
 package br.com.marcosouza.justamobile.ui.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +20,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.marcosouza.justamobile.R;
+import br.com.marcosouza.justamobile.interfaces.ClickRecyclerView;
 import br.com.marcosouza.justamobile.model.RecyclingCompany;
 import br.com.marcosouza.justamobile.model.RecyclingCompanyResponse;
+import br.com.marcosouza.justamobile.ui.activity.CompanyDetailActivity;
 import br.com.marcosouza.justamobile.ui.adapter.RecyclingCompanyAdapter;
 import br.com.marcosouza.justamobile.ui.viewmodels.RecyclingCompaniesViewModel;
 
-public class RecyclingCompaniesFragment extends Fragment {
+public class RecyclingCompaniesFragment extends Fragment implements ClickRecyclerView {
 
     private ArrayList<RecyclingCompany> recyclingCompanies = new ArrayList <> ();
     private RecyclingCompanyAdapter recyclingCompanyAdapter;
@@ -56,7 +59,7 @@ public class RecyclingCompaniesFragment extends Fragment {
     }
     private void loadRecyclerView() {
         if (recyclingCompanyAdapter == null) {
-            recyclingCompanyAdapter = new RecyclingCompanyAdapter(getActivity(), recyclingCompanies);
+            recyclingCompanyAdapter = new RecyclingCompanyAdapter(getActivity(), recyclingCompanies,this);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(recyclingCompanyAdapter);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -64,5 +67,13 @@ public class RecyclingCompaniesFragment extends Fragment {
         } else {
             recyclingCompanyAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onCustomClick(View view, int position, boolean isLongClick) {
+        recyclingCompanies.get(position);
+        Intent intent = new Intent(getActivity(), CompanyDetailActivity.class);
+        intent.putExtra("company", recyclingCompanies.get(position));
+        startActivity(intent);
     }
 }

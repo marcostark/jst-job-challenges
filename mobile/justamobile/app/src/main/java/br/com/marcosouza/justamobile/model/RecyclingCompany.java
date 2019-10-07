@@ -3,7 +3,9 @@ package br.com.marcosouza.justamobile.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RecyclingCompany {
+import java.io.Serializable;
+
+public class RecyclingCompany implements Serializable {
 
     @SerializedName("id")
     @Expose

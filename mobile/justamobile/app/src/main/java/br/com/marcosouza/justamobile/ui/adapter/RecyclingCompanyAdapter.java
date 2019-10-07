@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import br.com.marcosouza.justamobile.R;
+import br.com.marcosouza.justamobile.interfaces.ClickRecyclerView;
 import br.com.marcosouza.justamobile.model.NewsArticles;
 import br.com.marcosouza.justamobile.model.RecyclingCompany;
 
@@ -22,10 +23,17 @@ public class RecyclingCompanyAdapter extends RecyclerView.Adapter<RecyclingCompa
 
     private Context context;
     ArrayList<RecyclingCompany> recyclingCompanies;
+    private ClickRecyclerView clickRecyclerView;
 
-    public RecyclingCompanyAdapter(Context context, ArrayList<RecyclingCompany> recyclingCompanies) {
+    public void setClickRecyclerView(ClickRecyclerView clickRecyclerView) {
+        this.clickRecyclerView = clickRecyclerView;
+    }
+
+    public RecyclingCompanyAdapter(Context context, ArrayList<RecyclingCompany> recyclingCompanies,
+                                   ClickRecyclerView clickRecyclerView) {
         this.context = context;
         this.recyclingCompanies = recyclingCompanies;
+        this.clickRecyclerView = clickRecyclerView;
     }
 
 
@@ -52,7 +60,7 @@ public class RecyclingCompanyAdapter extends RecyclerView.Adapter<RecyclingCompa
 
 
 
-    public class RecyclingCompanyViewHolder extends RecyclerView.ViewHolder {
+    public class RecyclingCompanyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView mTextViewName;
         TextView mTextViewAddress;
         TextView mTextViewPhone;
@@ -66,6 +74,16 @@ public class RecyclingCompanyAdapter extends RecyclerView.Adapter<RecyclingCompa
             mTextViewPhone= itemView.findViewById(R.id.textView_companies_phone);
             mImageThumb = itemView.findViewById(R.id.imageView_thumb);
 
+            itemView.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(clickRecyclerView != null){
+                clickRecyclerView.onCustomClick(v, getLayoutPosition(),false);
+            }
         }
     }
+
 }
