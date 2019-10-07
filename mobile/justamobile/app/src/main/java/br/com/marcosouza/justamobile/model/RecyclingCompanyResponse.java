@@ -26,6 +26,13 @@ public class RecyclingCompanyResponse {
     @Expose
     private List<RecyclingCompany> results = null;
 
+    private Throwable error;
+
+    public RecyclingCompanyResponse(Throwable error) {
+        this.error = error;
+        this.results = null;
+    }
+
     public Integer getAtualPage() {
         return atualPage;
     }
@@ -72,5 +79,13 @@ public class RecyclingCompanyResponse {
 
     public void setResults(List<RecyclingCompany> results) {
         this.results = results;
+    }
+
+    public Throwable getError() {
+        return error;
+    }
+
+    public void setError(Throwable error) {
+        this.error = error;
     }
 }

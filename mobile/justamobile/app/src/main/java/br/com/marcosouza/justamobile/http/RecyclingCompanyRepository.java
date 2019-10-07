@@ -37,7 +37,7 @@ public class RecyclingCompanyRepository {
 
             @Override
             public void onFailure(Call<RecyclingCompanyResponse> call, Throwable t) {
-                newsData.setValue(null);
+                newsData.setValue(new RecyclingCompanyResponse(t));
             }
         });
         return newsData;

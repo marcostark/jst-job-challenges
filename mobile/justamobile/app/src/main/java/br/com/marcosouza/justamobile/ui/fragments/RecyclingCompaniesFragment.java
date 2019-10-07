@@ -2,10 +2,12 @@ package br.com.marcosouza.justamobile.ui.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -48,9 +50,18 @@ public class RecyclingCompaniesFragment extends Fragment implements ClickRecycle
         recyclingCompaniesViewModel.getCompaniesRepository().observe(this, new Observer<RecyclingCompanyResponse>() {
             @Override
             public void onChanged(RecyclingCompanyResponse recyclingCompany) {
-                List<RecyclingCompany> newsArticles = recyclingCompany.getResults();
-                recyclingCompanies.addAll(newsArticles);
-                recyclingCompanyAdapter.notifyDataSetChanged();
+                if(recyclingCompany == null){
+                    return;
+                }
+                if(recyclingCompany.getError() == null) {
+                    List<RecyclingCompany> newsArticles = recyclingCompany.getResults();
+                    recyclingCompanies.addAll(newsArticles);
+                    recyclingCompanyAdapter.notifyDataSetChanged();
+                } else {
+                    Throwable e = recyclingCompany.getError();
+                    Toast.makeText(getActivity(), "Error is " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.e("ERRORESPOSTA", "Error is " + e.getLocalizedMessage());
+                }
             }
         });
 

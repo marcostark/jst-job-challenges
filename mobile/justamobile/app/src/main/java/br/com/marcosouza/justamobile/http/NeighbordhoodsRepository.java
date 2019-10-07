@@ -37,7 +37,7 @@ public class NeighbordhoodsRepository {
 
             @Override
             public void onFailure(Call<NeighborhoodsResponse> call, Throwable t) {
-                newsData.setValue(null);
+                newsData.setValue(new NeighborhoodsResponse(t));
             }
         });
         return newsData;

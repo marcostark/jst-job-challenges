@@ -26,6 +26,13 @@ public class NeighborhoodsResponse {
     @Expose
     private List<Neighborhoods> results = null;
 
+    private Throwable error;
+
+    public NeighborhoodsResponse(Throwable error) {
+        this.error = error;
+        this.results = null;
+    }
+
     public Integer getAtualPage() {
         return atualPage;
     }
@@ -72,6 +79,14 @@ public class NeighborhoodsResponse {
 
     public void setResults(List<Neighborhoods> results) {
         this.results = results;
+    }
+
+    public Throwable getError() {
+        return error;
+    }
+
+    public void setError(Throwable error) {
+        this.error = error;
     }
 
 }
