@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="20dp"
     tools:context=".ui.activity.CompanyDetailActivity">
 
     <RelativeLayout
@@ -23,73 +24,139 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageView_detail_thumb"
-            android:text="Empresa de Reciclagem"
+            android:text="@string/name_company"
             android:gravity="center"
             android:padding="20dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView_detail_name"
-            android:src="@drawable/ic_menu_share"
-            android:layout_marginLeft="10dp"
-            android:id="@+id/imageView2"
-            android:layout_above="@+id/imageView3" />
-
-        <TextView
-            android:id="@+id/textView_detail_address"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aqui sera um endereco muito grande pq vai descer para outra linha"
-            android:padding="3dp"
-            android:layout_alignLeft="@+id/textView_detail_phone"
-            android:layout_alignStart="@+id/textView_detail_phone"
-            android:layout_below="@+id/textView_detail_name" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView_detail_address"
-            android:src="@drawable/ic_menu_share"
-            android:layout_marginLeft="10dp"
-            android:paddingTop="10dp"
-            android:id="@+id/imageView3" />
-
-        <TextView
-            android:id="@+id/textView_detail_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Telefone"
-            android:padding="3dp"
-            android:layout_alignBottom="@+id/imageView3"
-            android:layout_alignLeft="@+id/textView_detail_description_"
-            android:layout_alignStart="@+id/textView_detail_description_" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView_detail_phone"
-            android:src="@drawable/ic_menu_share"
-            android:layout_marginLeft="10dp"
-            android:paddingTop="10dp"
-            android:id="@+id/imageView4" />
-
-        <TextView
-            android:id="@+id/textView_detail_description_"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Descrição"
-            android:padding="4dp"
-            android:layout_alignBottom="@+id/imageView4"
-            android:layout_toRightOf="@+id/imageView4"
-            android:layout_toEndOf="@+id/imageView4"
             android:layout_marginLeft="30dp"
-            android:layout_marginStart="30dp" />
+            android:layout_marginRight="30dp"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:layout_below="@+id/textView_detail_name">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/colorViewDetailCompany"
+                    android:textSize="14sp"
+                    android:text="@string/address"/>
+
+                <TextView
+                    android:id="@+id/textView_detail_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#000"
+                    android:text="@string/email_test"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorViewDetailCompany"/>
 
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorViewDetailCompany"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="14sp"
+                    android:text="@string/phone"/>
+
+                <TextView
+                    android:id="@+id/textView_detail_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#000"
+                    android:text="@string/phone_test"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorViewDetailCompany"/>
 
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="@color/colorViewDetailCompany"
+                    android:textSize="14sp"
+                    android:text="@string/materials"/>
+
+                <TextView
+                    android:id="@+id/textView_detail_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#000"
+                    android:text="@string/materials_test"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorViewDetailCompany"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorViewDetailCompany"
+                    android:text="@string/social"/>
+
+                <TextView
+                    android:id="@+id/textView_detail_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#000"
+                    android:text="@string/facebook"
+                    android:textSize="18sp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@color/colorViewDetailCompany"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
     </RelativeLayout>
 
 </ScrollView>

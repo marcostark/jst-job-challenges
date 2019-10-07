@@ -41,7 +41,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
         textViewName = findViewById(R.id.textView_detail_name);
         textViewAddress = findViewById(R.id.textView_detail_address);
         textViewPhone = findViewById(R.id.textView_detail_phone);
-        textViewDescription = findViewById(R.id.textView_detail_description_);
+        textViewDescription = findViewById(R.id.textView_detail_description);
 
         textViewName.setText(mRecyclingCompany.getName());
         textViewAddress.setText(mRecyclingCompany.getAddress());

@@ -16,4 +16,13 @@
     <string name="menu_share">Compartilhe</string>
     <string name="menu_send">Contato</string>
     <string name="title_activity_recycling_map">Map</string>
+    <string name="address">Endereço</string>
+    <string name="phone">Telefone</string>
+    <string name="materials">Materiais</string>
+    <string name="social">Social</string>
+    <string name="facebook">facebook.com/@coopecamarest</string>
+    <string name="materials_test">Embalagem longa vida, Metais, Papel branco, Plástico, Vidro</string>
+    <string name="phone_test">(87)99614-3139</string>
+    <string name="email_test">marcosouza@gmail.com</string>
+    <string name="name_company">Nome Empresa</string>
 </resources>
