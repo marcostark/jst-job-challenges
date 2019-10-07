@@ -24,6 +24,7 @@ import br.com.marcosouza.justamobile.model.Neighborhoods;
 import br.com.marcosouza.justamobile.model.NeighborhoodsResponse;
 import br.com.marcosouza.justamobile.ui.adapter.NeighbordhoodsAdapter;
 import br.com.marcosouza.justamobile.ui.viewmodels.NeighborhoodsViewModel;
+import br.com.marcosouza.justamobile.util.Utils;
 
 public class NeighborhoodsFragment extends Fragment {
 
@@ -53,7 +54,7 @@ public class NeighborhoodsFragment extends Fragment {
                     neighbordhoodsAdapter.notifyDataSetChanged();
                 } else {
                     Throwable e = neighborhoodsResponse.getError();
-                    Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Utils.messageConnectFailed(getActivity(), e);
                 }
 
             }

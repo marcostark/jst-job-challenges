@@ -28,6 +28,7 @@ import br.com.marcosouza.justamobile.model.RecyclingCompanyResponse;
 import br.com.marcosouza.justamobile.ui.activity.CompanyDetailActivity;
 import br.com.marcosouza.justamobile.ui.adapter.RecyclingCompanyAdapter;
 import br.com.marcosouza.justamobile.ui.viewmodels.RecyclingCompaniesViewModel;
+import br.com.marcosouza.justamobile.util.Utils;
 
 public class RecyclingCompaniesFragment extends Fragment implements ClickRecyclerView {
 
@@ -59,7 +60,7 @@ public class RecyclingCompaniesFragment extends Fragment implements ClickRecycle
                     recyclingCompanyAdapter.notifyDataSetChanged();
                 } else {
                     Throwable e = recyclingCompany.getError();
-                    Toast.makeText(getActivity(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Utils.messageConnectFailed(getActivity(), e);
                 }
             }
         });
