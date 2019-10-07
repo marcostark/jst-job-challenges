@@ -3,7 +3,7 @@ package br.com.marcosouza.justamobile.http.core;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CompanyRetrofitService {
+public class RecyclaRetrofitService {
     private static Retrofit retrofit = new Retrofit.Builder()
             .baseUrl("http://192.168.100.3:8000/")
             .addConverterFactory(GsonConverterFactory.create())
