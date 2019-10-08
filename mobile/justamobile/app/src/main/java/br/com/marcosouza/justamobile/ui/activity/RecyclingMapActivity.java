@@ -1,16 +1,26 @@
 package br.com.marcosouza.justamobile.ui.activity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Arrays;
+import java.util.List;
 
-public class RecyclingMapActivity extends SupportMapFragment implements OnMapReadyCallback {
+import br.com.marcosouza.justamobile.model.CollectionPoints;
+import br.com.marcosouza.justamobile.util.Utils;
+
+
+public class RecyclingMapActivity extends SupportMapFragment implements OnMapReadyCallback,
+        GoogleMap.OnMapClickListener{
 
     private GoogleMap mMap;
 
@@ -42,9 +52,27 @@ public class RecyclingMapActivity extends SupportMapFragment implements OnMapRea
     }
 
     private void createMarkups(GoogleMap googleMap){
-        LatLng SerraTalhada = new LatLng(-7.982203, -38.289372);
-        googleMap.addMarker(new MarkerOptions().position(SerraTalhada).title("Serra Talhada - PE"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(SerraTalhada));
+
+        // TODO pegar localização automatica
+        LatLng serraTalhada = new LatLng(-7.982203, -38.289372);
+        googleMap.addMarker(new MarkerOptions().position(serraTalhada).title("Serra Talhada - PE"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(serraTalhada));
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(13.0f));
+
+        for(CollectionPoints collectionPoints: Utils.getMarkers()){
+
+            LatLng coordinate = new LatLng(Double.parseDouble(collectionPoints.getLat()),
+                    Double.parseDouble(collectionPoints.getLon()));
+
+            MarkerOptions marker = new MarkerOptions();
+            marker.position(coordinate);
+            marker.title(collectionPoints.getName());
+            marker.snippet(collectionPoints.getMaterials());
+            //marker.icon(BitmapDescriptorFactory.fromResource(collectionPoints.getThumb()));
+            googleMap.addMarker(marker);
+        }
     }
+
+    @Override
+    public void onMapClick(LatLng latLng) { }
 }
