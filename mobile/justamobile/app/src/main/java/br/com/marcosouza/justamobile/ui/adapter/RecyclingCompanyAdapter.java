@@ -15,8 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import br.com.marcosouza.justamobile.R;
-import br.com.marcosouza.justamobile.interfaces.ClickRecyclerView;
-import br.com.marcosouza.justamobile.model.NewsArticles;
+import br.com.marcosouza.justamobile.model.ClickRecyclerView;
 import br.com.marcosouza.justamobile.model.RecyclingCompany;
 
 public class RecyclingCompanyAdapter extends RecyclerView.Adapter<RecyclingCompanyAdapter.RecyclingCompanyViewHolder>{

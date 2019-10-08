@@ -1,4 +1,4 @@
-package br.com.marcosouza.justamobile.http;
+package br.com.marcosouza.justamobile.data.remote;
 
 import br.com.marcosouza.justamobile.model.NewsResponse;
 import retrofit2.Call;

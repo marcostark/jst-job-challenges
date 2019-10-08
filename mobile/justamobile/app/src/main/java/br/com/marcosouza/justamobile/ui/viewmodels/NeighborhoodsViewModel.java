@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import br.com.marcosouza.justamobile.http.NeighbordhoodsRepository;
+import br.com.marcosouza.justamobile.data.NeighbordhoodsRepository;
 import br.com.marcosouza.justamobile.model.NeighborhoodsResponse;
 
 public class NeighborhoodsViewModel extends ViewModel {

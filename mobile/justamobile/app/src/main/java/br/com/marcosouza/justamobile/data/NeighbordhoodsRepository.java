@@ -1,13 +1,15 @@
-package br.com.marcosouza.justamobile.http;
+package br.com.marcosouza.justamobile.data;
 
 import androidx.lifecycle.MutableLiveData;
 
-import br.com.marcosouza.justamobile.http.core.RecyclaRetrofitService;
+import br.com.marcosouza.justamobile.data.core.RecyclaRetrofitService;
+import br.com.marcosouza.justamobile.data.remote.RecyclePlusApi;
 import br.com.marcosouza.justamobile.model.NeighborhoodsResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// TODO organizar classes dos repositorios
 public class NeighbordhoodsRepository {
     private static NeighbordhoodsRepository neighbordhoodsRepository;
 
@@ -18,15 +20,15 @@ public class NeighbordhoodsRepository {
         return neighbordhoodsRepository;
     }
 
-    private RecyclingCompanyApi recyclingCompanyApi;
+    private RecyclePlusApi recyclePlusApi;
 
     public NeighbordhoodsRepository(){
-        recyclingCompanyApi = RecyclaRetrofitService.createService(RecyclingCompanyApi.class);
+        recyclePlusApi = RecyclaRetrofitService.createService(RecyclePlusApi.class);
     }
 
     public MutableLiveData<NeighborhoodsResponse> getCompanies(){
         final MutableLiveData<NeighborhoodsResponse> newsData = new MutableLiveData<>();
-        recyclingCompanyApi.getNeighbordhoods().enqueue(new Callback<NeighborhoodsResponse>() {
+        recyclePlusApi.getNeighbordhoods().enqueue(new Callback<NeighborhoodsResponse>() {
             @Override
             public void onResponse(Call<NeighborhoodsResponse> call,
                                    Response<NeighborhoodsResponse> response) {

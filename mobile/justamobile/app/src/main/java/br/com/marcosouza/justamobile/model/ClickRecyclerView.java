@@ -1,4 +1,4 @@
-package br.com.marcosouza.justamobile.interfaces;
+package br.com.marcosouza.justamobile.model;
 
 import android.view.View;
 

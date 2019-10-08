@@ -1,8 +1,9 @@
-package br.com.marcosouza.justamobile.http;
+package br.com.marcosouza.justamobile.data;
 
 import androidx.lifecycle.MutableLiveData;
 
-import br.com.marcosouza.justamobile.http.core.RetrofitService;
+import br.com.marcosouza.justamobile.data.core.RetrofitService;
+import br.com.marcosouza.justamobile.data.remote.NewsApi;
 import br.com.marcosouza.justamobile.model.NewsResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
