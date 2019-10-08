@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RecyclaRetrofitService {
     private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://192.168.100.3:8000/")
+            .baseUrl("http://192.168.100.8:8000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 

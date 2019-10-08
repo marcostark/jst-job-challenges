@@ -15,16 +15,20 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import br.com.marcosouza.justamobile.R;
+import br.com.marcosouza.justamobile.model.ClickRecyclerView;
 import br.com.marcosouza.justamobile.model.NewsArticles;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder>{
 
     private Context context;
     ArrayList<NewsArticles> newsArticles;
+    private ClickRecyclerView clickRecyclerView;
 
-    public NewsAdapter(Context context, ArrayList<NewsArticles> newsArticles) {
+    public NewsAdapter(Context context, ArrayList<NewsArticles> newsArticles,
+                       ClickRecyclerView clickRecyclerView) {
         this.context = context;
         this.newsArticles = newsArticles;
+        this.clickRecyclerView = clickRecyclerView;
     }
 
     @NonNull
@@ -48,7 +52,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     }
 
 
-    public class NewsViewHolder extends RecyclerView.ViewHolder {
+    public class NewsViewHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener{
 
         TextView mTextViewTitle;
         TextView mTextViewDescription;
@@ -61,6 +66,15 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             mTextViewDescription = itemView.findViewById(R.id.textView_description);
             mImageThumbNews = itemView.findViewById(R.id.imageView_thumb);
 
+            itemView.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(clickRecyclerView != null){
+                clickRecyclerView.onCustomClick(v, getLayoutPosition(),false);
+            }
         }
     }
 }

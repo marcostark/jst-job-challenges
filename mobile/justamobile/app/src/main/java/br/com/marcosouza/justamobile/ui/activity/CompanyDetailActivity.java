@@ -3,9 +3,13 @@ package br.com.marcosouza.justamobile.ui.activity;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -50,5 +54,19 @@ public class CompanyDetailActivity extends AppCompatActivity {
         Picasso.get().load(mRecyclingCompany.getThumb()).into(imageView);
 
 
+    }
+
+    public void openDialer(View view) {
+        Uri uri = Uri.parse("tel:" + textViewPhone.getText().toString());
+        Intent i = new Intent(Intent.ACTION_DIAL, uri);
+        try
+        {
+            startActivity(i);
+        }
+        catch (SecurityException s)
+        {
+            Toast.makeText(this, s.getMessage(), Toast.LENGTH_LONG)
+                    .show();
+        }
     }
 }

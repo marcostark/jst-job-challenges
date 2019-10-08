@@ -24,9 +24,6 @@ public class RecyclingCompanyAdapter extends RecyclerView.Adapter<RecyclingCompa
     ArrayList<RecyclingCompany> recyclingCompanies;
     private ClickRecyclerView clickRecyclerView;
 
-    public void setClickRecyclerView(ClickRecyclerView clickRecyclerView) {
-        this.clickRecyclerView = clickRecyclerView;
-    }
 
     public RecyclingCompanyAdapter(Context context, ArrayList<RecyclingCompany> recyclingCompanies,
                                    ClickRecyclerView clickRecyclerView) {

@@ -1,5 +1,7 @@
 package br.com.marcosouza.justamobile.ui.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.marcosouza.justamobile.R;
+import br.com.marcosouza.justamobile.model.ClickRecyclerView;
 import br.com.marcosouza.justamobile.model.NewsArticles;
 import br.com.marcosouza.justamobile.model.NewsResponse;
 import br.com.marcosouza.justamobile.ui.adapter.NewsAdapter;
 import br.com.marcosouza.justamobile.ui.viewmodels.NewsViewModel;
 
-public class NewsFragment extends Fragment {
+public class NewsFragment extends Fragment implements ClickRecyclerView {
 
     private ArrayList<NewsArticles> newsArticleList = new ArrayList <> ();
     private NewsAdapter newsAdapter;
@@ -56,7 +59,7 @@ public class NewsFragment extends Fragment {
 
     private void loadRecyclerView() {
         if (newsAdapter == null) {
-            newsAdapter = new NewsAdapter(getActivity(), newsArticleList);
+            newsAdapter = new NewsAdapter(getActivity(), newsArticleList, this);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(newsAdapter);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -64,5 +67,13 @@ public class NewsFragment extends Fragment {
         } else {
             newsAdapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void onCustomClick(View view, int position, boolean isLongClick) {
+        //Todo add webview posteriromente
+        Uri uri = Uri.parse(newsArticleList.get(position).getUrl());
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 }

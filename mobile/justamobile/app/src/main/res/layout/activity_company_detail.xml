@@ -86,6 +86,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
                     android:textColor="#000"
+                    android:onClick="openDialer"
                     android:text="@string/phone_test"
                     android:textSize="18sp"/>
 
