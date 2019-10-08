@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import br.com.marcosouza.justamobile.data.RecyclingCompanyRepository;
+import br.com.marcosouza.justamobile.data.repositories.RecyclingCompanyRepository;
 import br.com.marcosouza.justamobile.model.RecyclingCompanyResponse;
 
 public class RecyclingCompaniesViewModel extends ViewModel {

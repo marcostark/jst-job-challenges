@@ -71,7 +71,7 @@ public class NewsFragment extends Fragment implements ClickRecyclerView {
 
     @Override
     public void onCustomClick(View view, int position, boolean isLongClick) {
-        //Todo add webview posteriromente
+        //TODO add webview posteriromente
         Uri uri = Uri.parse(newsArticleList.get(position).getUrl());
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);

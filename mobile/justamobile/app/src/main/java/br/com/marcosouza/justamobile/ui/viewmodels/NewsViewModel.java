@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import br.com.marcosouza.justamobile.data.NewsRepository;
+import br.com.marcosouza.justamobile.data.repositories.NewsRepository;
 import br.com.marcosouza.justamobile.model.NewsResponse;
 
 public class NewsViewModel extends ViewModel {

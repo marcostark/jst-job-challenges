@@ -27,6 +27,15 @@ public class CollectionPoints {
     @Expose
     private String lon;
 
+    public CollectionPoints(String name, String thumb, String description, String materials, String lat, String lon) {
+        this.name = name;
+        this.thumb = thumb;
+        this.description = description;
+        this.materials = materials;
+        this.lat = lat;
+        this.lon = lon;
+    }
+
     public Integer getId() {
         return id;
     }

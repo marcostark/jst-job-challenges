@@ -2,6 +2,7 @@ package br.com.marcosouza.justamobile.ui.activity;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -33,11 +34,24 @@ public class CompanyDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_company_detail);
         this.action = getSupportActionBar();
         this.action.setTitle("Recycle Plus");
-        //this.action.setDisplayHomeAsUpEnabled(true);
+
+        // TODO não volta para o fragmento anterior
+        this.action.setDisplayHomeAsUpEnabled(true);
+
 
         mRecyclingCompany = (RecyclingCompany) getIntent().getSerializableExtra("company");
 
         loadComponents();
+    }
+
+    @Override
+    public void onBackPressed() {
+        FragmentManager mgr = getSupportFragmentManager();
+        if (mgr.getBackStackEntryCount() == 0) {
+            super.onBackPressed();
+        } else {
+            mgr.popBackStack();
+        }
     }
 
     public void loadComponents(){
@@ -57,6 +71,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
     }
 
     public void openDialer(View view) {
+        // TODO Verificar permissões de ligação
         Uri uri = Uri.parse("tel:" + textViewPhone.getText().toString());
         Intent i = new Intent(Intent.ACTION_DIAL, uri);
         try
