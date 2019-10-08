@@ -1,4 +1,4 @@
-package br.com.marcosouza.justamobile.data;
+package br.com.marcosouza.justamobile.data.repositories;
 
 import androidx.lifecycle.MutableLiveData;
 
