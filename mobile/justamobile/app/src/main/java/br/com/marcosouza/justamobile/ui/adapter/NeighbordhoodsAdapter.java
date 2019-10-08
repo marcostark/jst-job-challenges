@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.com.marcosouza.justamobile.R;
 import br.com.marcosouza.justamobile.model.Neighborhoods;
@@ -37,6 +38,12 @@ public class NeighbordhoodsAdapter extends RecyclerView.Adapter<NeighbordhoodsAd
         holder.mTextViewName.setText(neighborhoods.get(position).getName());
         holder.mTextViewWeekDay.setText(neighborhoods.get(position).getDays());
         holder.mTextViewSchedule.setText(neighborhoods.get(position).getSchedule());
+    }
+
+    public void filteredList(List<Neighborhoods> newList){
+     neighborhoods = new ArrayList<>();
+     neighborhoods.addAll(newList);
+     notifyDataSetChanged();
     }
 
 

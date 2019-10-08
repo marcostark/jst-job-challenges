@@ -3,11 +3,16 @@ package br.com.marcosouza.justamobile.ui.fragments;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -26,7 +31,7 @@ import br.com.marcosouza.justamobile.ui.adapter.NeighbordhoodsAdapter;
 import br.com.marcosouza.justamobile.ui.viewmodels.NeighborhoodsViewModel;
 import br.com.marcosouza.justamobile.util.Utils;
 
-public class NeighborhoodsFragment extends Fragment {
+public class NeighborhoodsFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private NeighborhoodsViewModel neighborhoodsViewModel;
     private ArrayList<Neighborhoods> neighborhoods = new ArrayList <> ();
@@ -35,6 +40,9 @@ public class NeighborhoodsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+        setHasOptionsMenu(true);
+
         neighborhoodsViewModel =
                 ViewModelProviders.of(this).get(NeighborhoodsViewModel.class);
 
@@ -75,4 +83,35 @@ public class NeighborhoodsFragment extends Fragment {
             neighbordhoodsAdapter.notifyDataSetChanged();
         }
     }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+
+        String query = newText.toLowerCase();
+        List<Neighborhoods> filterNeighborhoods = new ArrayList<>();
+
+        for(Neighborhoods neighborhood : neighborhoods){
+            final String name = neighborhood.getName().toLowerCase();
+            if (name.contains(query)) {
+                filterNeighborhoods .add(neighborhood);
+            }
+        }
+        neighbordhoodsAdapter.filteredList(filterNeighborhoods );
+        return true;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.search_neighbordhoods, menu);
+        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
 }
