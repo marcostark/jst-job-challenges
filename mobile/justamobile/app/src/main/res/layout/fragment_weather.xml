@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#47D9AF">
+    android:background="@drawable/background_gradient">
 
 
     <RelativeLayout
@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="28sp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="60dp"
             android:text="@string/city"
             android:textColor="#FFFFFF"
             android:layout_centerHorizontal="true"/>
