@@ -9,15 +9,13 @@ import br.com.marcosouza.justamobile.data.remote.WeatherApi;
 import br.com.marcosouza.justamobile.model.NewsResponse;
 import br.com.marcosouza.justamobile.model.Weather;
 import br.com.marcosouza.justamobile.model.WeatherResponse;
+import br.com.marcosouza.justamobile.util.AppConstants;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class WeatherRepository {
 
-    private String APPID = "690cac557da1ff012090de70f05d808b";
-    private String UNITS = "metric";
-    private String CITY = "Serra Talhada";
 
     private static WeatherRepository newsRepository;
 
@@ -31,12 +29,12 @@ public class WeatherRepository {
     private WeatherApi weatherApi;
 
     public WeatherRepository(){
-        weatherApi = WeatherRetrofitService.createService(WeatherApi.class);
+        weatherApi = RetrofitService.createService(WeatherApi.class);
     }
 
     public MutableLiveData<WeatherResponse> getWeather(){
         final MutableLiveData<WeatherResponse> newsData = new MutableLiveData<>();
-        weatherApi.getCurrentWeather(CITY, APPID, UNITS).enqueue(new Callback<WeatherResponse>() {
+        weatherApi.getCurrentWeather(AppConstants.WEATHER_ENDPOINT,AppConstants.CITY, AppConstants.API_KEY, AppConstants.UNITS).enqueue(new Callback<WeatherResponse>() {
             @Override
             public void onResponse(Call<WeatherResponse> call,
                                    Response<WeatherResponse> response) {
