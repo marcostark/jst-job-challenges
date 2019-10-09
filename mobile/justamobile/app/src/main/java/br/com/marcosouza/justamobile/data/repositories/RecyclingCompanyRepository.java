@@ -2,7 +2,7 @@ package br.com.marcosouza.justamobile.data.repositories;
 
 import androidx.lifecycle.MutableLiveData;
 
-import br.com.marcosouza.justamobile.data.core.RecyclaRetrofitService;
+import br.com.marcosouza.justamobile.data.core.RetrofitService;
 import br.com.marcosouza.justamobile.data.remote.RecyclePlusApi;
 import br.com.marcosouza.justamobile.model.RecyclingCompanyResponse;
 import retrofit2.Call;
@@ -10,6 +10,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RecyclingCompanyRepository {
+
     private static RecyclingCompanyRepository recyclingCompanyRepository;
 
     public static RecyclingCompanyRepository getInstance(){
@@ -22,7 +23,7 @@ public class RecyclingCompanyRepository {
     private RecyclePlusApi recyclePlusApi;
 
     public RecyclingCompanyRepository(){
-        recyclePlusApi = RecyclaRetrofitService.createService(RecyclePlusApi.class);
+        recyclePlusApi = RetrofitService.createService(RecyclePlusApi.class);
     }
 
     public MutableLiveData<RecyclingCompanyResponse> getCompanies(){
