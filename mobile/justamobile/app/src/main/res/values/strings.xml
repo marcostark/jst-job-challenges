@@ -25,4 +25,10 @@
     <string name="phone_test">(87)99614-3139</string>
     <string name="email_test">marcosouza@gmail.com</string>
     <string name="name_company">Nome Empresa</string>
+    <string name="city">Serra Talhada - PE</string>
+    <string name="min">Min</string>
+    <string name="max">Max</string>
+    <string name="humidity">Umidade</string>
+    <string name="sunrise">Nascer do Sol</string>
+    <string name="sunset">Pôr do Sol</string>
 </resources>
