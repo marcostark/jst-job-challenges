@@ -2,7 +2,9 @@ package br.com.marcosouza.justamobile.util;
 
 public final class AppConstants {
 
-    // Weather Constants
+    // Api temporaria de teste apenas para fins didaticos
+    public static final String RECICLA_ENDPOINT = "https://recicla-mais.herokuapp.com/";
+
     public static final String WEATHER_ENDPOINT = "http://api.openweathermap.org/data/2.5/weather?";
 
     public static final String API_KEY = "690cac557da1ff012090de70f05d808b";
@@ -12,7 +14,6 @@ public final class AppConstants {
     public static final String CITY = "Serra Talhada";
 
 
-    // News Constants
     public static final String NEWS_ENDPOINT = "https://newsapi.org/v2/everything";
 
 

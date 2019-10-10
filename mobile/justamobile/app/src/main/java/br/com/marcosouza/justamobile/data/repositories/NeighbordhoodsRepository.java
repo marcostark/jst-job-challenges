@@ -2,7 +2,6 @@ package br.com.marcosouza.justamobile.data.repositories;
 
 import androidx.lifecycle.MutableLiveData;
 
-import br.com.marcosouza.justamobile.data.core.RecyclaRetrofitService;
 import br.com.marcosouza.justamobile.data.core.RetrofitService;
 import br.com.marcosouza.justamobile.data.remote.RecyclePlusApi;
 import br.com.marcosouza.justamobile.model.NeighborhoodsResponse;

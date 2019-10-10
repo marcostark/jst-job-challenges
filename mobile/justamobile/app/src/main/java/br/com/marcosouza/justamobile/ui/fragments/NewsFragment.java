@@ -39,10 +39,10 @@ public class NewsFragment extends Fragment implements ClickRecyclerView {
                              ViewGroup container, Bundle savedInstanceState) {
         newsViewModel =
                 ViewModelProviders.of(this).get(NewsViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_news, container, false);
         recyclerView = root.findViewById(R.id.rv_news);
-        newsViewModel =
-                ViewModelProviders.of(this).get(NewsViewModel.class);
+
         newsViewModel.init();
         newsViewModel.getNewsRepository().observe(this, new Observer<NewsResponse>() {
             @Override

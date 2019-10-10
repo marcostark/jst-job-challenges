@@ -25,6 +25,7 @@ public class SplashActivity extends AppCompatActivity {
 
     }
 
+    // TODO Verificar conexão ao entrar no aplicativo
     private void initialScreen() {
         Intent intent = new Intent(SplashActivity.this, SigninActivity.class);
         startActivity(intent);

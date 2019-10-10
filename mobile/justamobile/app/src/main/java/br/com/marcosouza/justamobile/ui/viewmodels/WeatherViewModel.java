@@ -19,7 +19,7 @@ public class WeatherViewModel extends ViewModel {
         if(mMutableLiveData != null){
             return;
         }
-    //public WeatherViewModel() {
+
         mWeatherRepository = WeatherRepository.getInstance();
         mMutableLiveData = mWeatherRepository.getWeather();
     }

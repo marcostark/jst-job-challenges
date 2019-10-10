@@ -3,11 +3,7 @@ package br.com.marcosouza.justamobile.data.repositories;
 import androidx.lifecycle.MutableLiveData;
 
 import br.com.marcosouza.justamobile.data.core.RetrofitService;
-import br.com.marcosouza.justamobile.data.core.WeatherRetrofitService;
-import br.com.marcosouza.justamobile.data.remote.NewsApi;
 import br.com.marcosouza.justamobile.data.remote.WeatherApi;
-import br.com.marcosouza.justamobile.model.NewsResponse;
-import br.com.marcosouza.justamobile.model.Weather;
 import br.com.marcosouza.justamobile.model.WeatherResponse;
 import br.com.marcosouza.justamobile.util.AppConstants;
 import retrofit2.Call;

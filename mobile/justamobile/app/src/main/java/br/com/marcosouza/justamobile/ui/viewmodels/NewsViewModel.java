@@ -16,7 +16,7 @@ public class NewsViewModel extends ViewModel {
         if(mMutableLiveData != null){
             return;
         }
-        //mText = new MutableLiveData<>();
+
         mNewsRepository = NewsRepository.getInstance();
         mMutableLiveData = mNewsRepository.getNews("globo",
                 "dengue",

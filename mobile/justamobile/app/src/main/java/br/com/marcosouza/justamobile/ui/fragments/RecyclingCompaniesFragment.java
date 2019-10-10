@@ -39,10 +39,11 @@ public class RecyclingCompaniesFragment extends Fragment implements ClickRecycle
 
         recyclingCompaniesViewModel =
                 ViewModelProviders.of(this).get(RecyclingCompaniesViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_recycling_companies, container, false);
         recyclerView = root.findViewById(R.id.rv_companies);
-        recyclingCompaniesViewModel =
-                ViewModelProviders.of(this).get(RecyclingCompaniesViewModel.class);
+
+
         recyclingCompaniesViewModel.init();
         recyclingCompaniesViewModel.getCompaniesRepository().observe(this, new Observer<RecyclingCompanyResponse>() {
             @Override

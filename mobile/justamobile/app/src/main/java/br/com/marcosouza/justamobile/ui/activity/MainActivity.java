@@ -20,14 +20,19 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import br.com.marcosouza.justamobile.R;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
+    private TextView textViewUserName;
+    private TextView textViewUserEmail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +46,20 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        textViewUserName = headerView.findViewById(R.id.textViewUserName);
+        textViewUserEmail = headerView.findViewById(R.id.textViewUserEmail);
+
+        textViewUserName.setText("Recicla +");
+        textViewUserEmail.setText(String.format("%s ",firebaseUser.getEmail()));
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
                 R.id.nav_recycling_companies, R.id.nav_tools,
                 R.id.nav_share, R.id.nav_send)
                 .setDrawerLayout(drawer)
                 .build();
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -62,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_sign_up:
-                FirebaseAuth.getInstance().signOut();
+                firebaseAuth.signOut();
                 startActivity(new Intent(MainActivity.this, SigninActivity.class));
                 finish();
         }
