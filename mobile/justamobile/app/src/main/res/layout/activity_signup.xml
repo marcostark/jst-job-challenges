@@ -14,11 +14,11 @@
 
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/recycle" />
 
 
         <EditText
@@ -49,9 +49,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorAccent"
+            android:background="#125D5A"
             android:text="Inscrever-se"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
 
         <!-- Link to Login Screen -->
