@@ -16,8 +16,7 @@
             android:layout_height="200dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            tools:srcCompat="@tools:sample/avatars[3]">
-        </ImageView>
+            tools:srcCompat="@tools:sample/avatars[3]" />
 
         <TextView
             android:id="@+id/textView_detail_name"
@@ -81,14 +80,18 @@
                     android:text="@string/phone"/>
 
                 <TextView
-                    android:id="@+id/textView_detail_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
-                    android:textColor="#000"
-                    android:onClick="openDialer"
-                    android:text="@string/phone_test"
-                    android:textSize="18sp"/>
+                        android:paddingTop="6dp"
+                        android:id="@+id/textView_detail_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="#000"
+                        android:onClick="openDialer"
+                        android:drawableLeft="@drawable/phone"
+                        android:drawablePadding="8dp"
+                        android:drawableTint="@color/colorPrimaryDark"
+                        android:text="@string/phone_test"
+                        android:textSize="18sp"/>
 
                 <View
                     android:layout_width="match_parent"
