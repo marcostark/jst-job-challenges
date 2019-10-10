@@ -7,12 +7,15 @@ import androidx.fragment.app.FragmentManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.util.Locale;
 
 import br.com.marcosouza.justamobile.R;
 import br.com.marcosouza.justamobile.model.RecyclingCompany;
@@ -55,6 +58,10 @@ public class CompanyDetailActivity extends AppCompatActivity {
     }
 
     public void loadComponents(){
+
+        String formattedNumber = PhoneNumberUtils.formatNumber(mRecyclingCompany.getPhone(),
+                Locale.getDefault().getCountry());
+
         imageView = findViewById(R.id.imageView_detail_thumb);
         textViewName = findViewById(R.id.textView_detail_name);
         textViewAddress = findViewById(R.id.textView_detail_address);
@@ -63,7 +70,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
 
         textViewName.setText(mRecyclingCompany.getName());
         textViewAddress.setText(mRecyclingCompany.getAddress());
-        textViewPhone.setText(mRecyclingCompany.getPhone());
+        textViewPhone.setText(formattedNumber);
         textViewDescription.setText(mRecyclingCompany.getDescription());
         Picasso.get().load(mRecyclingCompany.getThumb()).into(imageView);
 
