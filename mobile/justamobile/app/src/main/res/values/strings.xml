@@ -32,9 +32,9 @@
     <string name="sunrise">Nascer do Sol</string>
     <string name="sunset">Pôr do Sol</string>
 
-    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
-    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="minimum_password">Senha muito curta, informe no minimo 6 caracteres!</string>
+    <string name="auth_failed">Autenticação falhou! Verifique seu email e senha ou cadastra-se</string>
     <string name="action_sign_up">Sair</string>
     <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
+    <string name="hint_password">Senha</string>
 </resources>

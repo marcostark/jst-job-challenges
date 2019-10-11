@@ -41,7 +41,7 @@ public class SigninActivity extends AppCompatActivity {
 
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
-        progressBar = findViewById(R.id.progress_bar);
+        progressBar = findViewById(R.id.progressBar);
         buttonSignIn = findViewById(R.id.sign_in_button);
         buttonSignUp = findViewById(R.id.sign_up_button);
 
@@ -74,12 +74,8 @@ public class SigninActivity extends AppCompatActivity {
                         .addOnCompleteListener(SigninActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
                                 progressBar.setVisibility(View.GONE);
                                 if (!task.isSuccessful()) {
-                                    // there was an error
                                     if (password.length() < 6) {
                                         editTextPassword.setError(getString(R.string.minimum_password));
                                     } else {

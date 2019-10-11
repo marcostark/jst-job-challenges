@@ -38,7 +38,7 @@ public class SignupActivity extends AppCompatActivity {
         buttonSignUp = findViewById(R.id.btn_signup);
         editTextEmail = findViewById(R.id.email);
         editTextPassword =  findViewById(R.id.password);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar_signup);
 
         buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,11 +74,7 @@ public class SignupActivity extends AppCompatActivity {
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(SignupActivity.this, "Autenticação falhou." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
