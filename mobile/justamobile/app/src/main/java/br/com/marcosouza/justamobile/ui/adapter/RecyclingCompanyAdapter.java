@@ -1,6 +1,7 @@
 package br.com.marcosouza.justamobile.ui.adapter;
 
 import android.content.Context;
+import android.telephony.PhoneNumberUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import br.com.marcosouza.justamobile.R;
 import br.com.marcosouza.justamobile.model.ClickRecyclerView;
@@ -42,9 +44,13 @@ public class RecyclingCompanyAdapter extends RecyclerView.Adapter<RecyclingCompa
 
     @Override
     public void onBindViewHolder(@NonNull RecyclingCompanyViewHolder holder, int position) {
+        String formattedNumber = PhoneNumberUtils.formatNumber(
+                recyclingCompanies.get(position).getPhone(),
+                Locale.getDefault().getCountry());
+
         holder.mTextViewName.setText(recyclingCompanies.get(position).getName());
         holder.mTextViewAddress.setText(recyclingCompanies.get(position).getAddress());
-        holder.mTextViewPhone.setText(recyclingCompanies.get(position).getPhone());
+        holder.mTextViewPhone.setText(formattedNumber);
         Picasso.get().load(recyclingCompanies.get(position).getThumb()).into(holder.mImageThumb);
     }
 

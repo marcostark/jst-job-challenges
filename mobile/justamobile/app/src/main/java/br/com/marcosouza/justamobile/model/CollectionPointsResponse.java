@@ -25,6 +25,13 @@ public class CollectionPointsResponse {
     @Expose
     private List<CollectionPoints> results = null;
 
+    private Throwable error;
+
+    public CollectionPointsResponse(Throwable error) {
+        this.error = error;
+        this.results = null;
+    }
+
     public Integer getAtualPage() {
         return atualPage;
     }
@@ -71,5 +78,13 @@ public class CollectionPointsResponse {
 
     public void setResults(List<CollectionPoints> results) {
         this.results = results;
+    }
+
+    public Throwable getError() {
+        return error;
+    }
+
+    public void setError(Throwable error) {
+        this.error = error;
     }
 }

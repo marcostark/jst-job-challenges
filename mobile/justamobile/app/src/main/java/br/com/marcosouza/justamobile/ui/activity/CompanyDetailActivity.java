@@ -36,11 +36,7 @@ public class CompanyDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_detail);
         this.action = getSupportActionBar();
-        this.action.setTitle("Recycle Plus");
-
-        // TODO não volta para o fragmento anterior
-        this.action.setDisplayHomeAsUpEnabled(true);
-
+        this.action.setTitle("Recicla +");
 
         mRecyclingCompany = (RecyclingCompany) getIntent().getSerializableExtra("company");
 
