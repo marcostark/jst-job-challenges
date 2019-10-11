@@ -15,6 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.Arrays;
 import java.util.List;
 
+import br.com.marcosouza.justamobile.R;
 import br.com.marcosouza.justamobile.model.CollectionPoints;
 import br.com.marcosouza.justamobile.util.Utils;
 
@@ -68,7 +69,7 @@ public class RecyclingMapActivity extends SupportMapFragment implements OnMapRea
             marker.position(coordinate);
             marker.title(collectionPoints.getName());
             marker.snippet(collectionPoints.getMaterials());
-            //marker.icon(BitmapDescriptorFactory.fromResource(collectionPoints.getThumb()));
+            marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.point_papel));
             googleMap.addMarker(marker);
         }
     }
