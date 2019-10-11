@@ -26,7 +26,7 @@
             android:title="@string/menu_forecast" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Comunicação">
         <menu>
             <item
                 android:id="@+id/nav_share"
