@@ -1,6 +1,10 @@
 package br.com.marcosouza.justamobile.data.repositories;
 
+import android.widget.Toast;
+
 import androidx.lifecycle.MutableLiveData;
+
+import java.net.SocketTimeoutException;
 
 import br.com.marcosouza.justamobile.data.core.RetrofitService;
 import br.com.marcosouza.justamobile.data.remote.RecyclePlusApi;
@@ -39,6 +43,9 @@ public class RecyclingCompanyRepository {
 
             @Override
             public void onFailure(Call<RecyclingCompanyResponse> call, Throwable t) {
+                if(t instanceof SocketTimeoutException){
+                    newsData.setValue(new RecyclingCompanyResponse(t));
+                }
                 newsData.setValue(new RecyclingCompanyResponse(t));
             }
         });

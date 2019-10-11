@@ -4,11 +4,12 @@
 
 
 ### Funcionalidades
-    -
-    -
-    -
-    -
-    -
+    - Pontos de Coleta Seletiva na Cidade
+    - Horário da coleta nos bairros
+    - Noticias sobre sustentabilidade
+    - Informações das cooperativas locais
+    - Dados sobre o clima local
+
 
 
 # TODO
